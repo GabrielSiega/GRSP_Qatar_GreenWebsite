@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>World Cup Travel Promo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/script.min.js"></script>
+
+  <style>
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode header.navbar {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode a {
+      color: #f1f1f1;
+    }
+
+    body.dark-mode table {
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode footer {
+      background-color: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    /* Dark mode toggle button */
+    .dark-btn {
+      margin-left: 1rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">MyAirline</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Book</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="#">Privilege Club</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </nav>
+    <!-- Dark mode toggle button -->
+    <button id="darkModeToggle" class="dark-btn" aria-label="Toggle dark mode">🌙</button>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Score Your Spot at FIFA World Cup 26™</h1>
+      <p>Fly with comfort, style, and sustainability.</p>
+      <a href="#" class="btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Booking Widget -->
+  <section class="booking">
+    <div class="booking-tabs">
+      <button class="active">Book a Flight</button>
+      <button>Stopover / Packages</button>
+      <button>Manage / Check-in</button>
+      <button>Flight Status</button>
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+      <div class="form-row">
+        <label for="origin">From:</label>
+        <select id="origin" name="origin" required>
+          <option value="">-- Select origin --</option>
+          <!-- Options injected by script.js -->
+        </select>
+
+        <label for="destination">To:</label>
+        <select id="destination" name="destination" required>
+          <option value="">-- Select destination --</option>
+          <!-- Options injected by script.js -->
+        </select>
+      </div>
+
+      <div class="form-row">
+        <input type="text" name="passengerName" placeholder="Passenger Name" required>
+      </div>
+
+      <button type="submit" class="search-btn">Book Flight</button>
+    </form>
+  </section>
+
+  <!-- Available Flights -->
+  <section class="available-flights">
+    <h2>Available Flights</h2>
+    <table id="availableFlightsTable">
+      <thead>
+        <tr>
+          <th>Flight Number</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Bookings -->
+  <section class="booking-results">
+    <h2>Bookings</h2>
+    <table id="bookingsTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Passenger</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Promotions -->
+  <section class="promotions">
+    <h2>Latest Offers</h2>
+    <div class="promo-grid">
+      <!-- Lazy-loaded images can be added here -->
+    </div>
+
+    <div class="promo-text">
+      <h3>Why Choose MyAirline?</h3>
+      <p>We combine sustainability, comfort, and affordability to give you the best travel experience.</p>
+      <ul>
+        <li>🌍 Eco-friendly fleet</li>
+        <li>🍽 Award-winning onboard dining</li>
+        <li>💺 Spacious seating options</li>
+        <li>🎉 Exclusive loyalty rewards</li>
+        <li>💳 Reward redemption</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- More Offers -->
+  <section class="promotions more-offers">
+    <h2>More Offers</h2>
+    <div class="promo-grid">
+      <img src="/Images/promo9.jpg" alt="Winter specials" loading="lazy">
+      <img src="/Images/promo10.jpg" alt="Summer escapes" loading="lazy">
+      <img src="/Images/promo11.jpg" alt="City breaks" loading="lazy">
+      <img src="/Images/promo12.jpg" alt="Family holiday packages" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 MyAirline. All rights reserved.</p>
+  </footer>
+
+  <!-- Inline JS for UI toggles -->
+  <script>
+    // Mobile menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    if (toggle) {
+      toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    }
+
+    // Dark mode toggle with persistence
+    const darkToggle = document.getElementById('darkModeToggle');
+    if (darkToggle) {
+      // Load saved preference
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      });
+    }
+
+    // Add 'loaded' class when image finishes loading
+    document.querySelectorAll('.promo-grid img').forEach(img => {
+      img.addEventListener('load', () => {
+        img.classList.add('loaded');
+      });
+    });
+  </script>
+  <!-- External JS -->
+  <script src="/script.js"></script>
+</body>
+</html>

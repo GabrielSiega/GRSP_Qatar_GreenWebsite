@@ -1,0 +1,28 @@
+{
+  "name": "grsp_project_qatar_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify-js": "terser Public/script.js -o Public/script.min.js --compress --mangle",
+    "minify-css": "postcss Public/css/style.css -o Public/css/style.min.css",
+    "build": "esbuild Public/script.js --bundle --minify --outfile=Public/script.min.js",
+    "start": "node server.js"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "cssnano": "^7.1.2",
+    "esbuild": "^0.27.2",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "terser": "^5.46.0"
+  }
+}
