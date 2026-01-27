@@ -1,6 +1,6 @@
 # GRSP_Qatar – Green Redesign of Qatar Airways Singapore Homepage
 
-![Qatar Airways Homepage Screenshot](qatarairways_homepage.png)
+![Qatar Airways Homepage Screenshot](Public/Images/fifa-banner.png)
 
 ## 📖 Overview
 A sustainability-focused redesign of the Qatar Airways Singapore homepage. This project aligns booking services, promotions, and loyalty program access with eco-friendly digital practices, reducing the carbon footprint of the airline’s digital presence.
