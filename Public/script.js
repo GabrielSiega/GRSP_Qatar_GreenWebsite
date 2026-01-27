@@ -38,8 +38,8 @@ async function loadAvailableFlights() {
         <td>${flight.flightNumber}</td>
         <td>${flight.origin}</td>
         <td>${flight.destination}</td>
-        <td>${flight.departureDate}</td>
-        <td>${flight.arrivalDate}</td>
+        <td>${flight.departure}</td>
+        <td>${flight.arrival}</td>
       `;
       availableFlightsTableBody.appendChild(row);
     });
@@ -47,6 +47,8 @@ async function loadAvailableFlights() {
     console.error('Error loading available flights:', err);
   }
 }
+
+
 
 // Load bookings into table
 async function loadBookings(highlightId = null) {
@@ -62,9 +64,8 @@ async function loadBookings(highlightId = null) {
         <td>${booking.passengerName || '-'}</td>
         <td>${booking.origin || '-'}</td>
         <td>${booking.destination || '-'}</td>
-        <td>${booking.departureDate || '-'}</td>
-        <td>${booking.arrivalDate || '-'}</td>
-        <td>${booking.class || '-'}</td>
+        <td>${booking.departure || '-'}</td>
+        <td>${booking.arrival || '-'}</td>
         <td>${booking.status || 'Confirmed'}</td>
       `;
       if (highlightId && booking.id === highlightId) {
@@ -77,6 +78,8 @@ async function loadBookings(highlightId = null) {
     console.error('Error loading bookings:', err);
   }
 }
+
+
 
 // Check if a booking with same origin → destination exists (case-insensitive, ignoring dates)
 async function checkExistingBooking(origin, destination) {
@@ -93,31 +96,31 @@ async function checkExistingBooking(origin, destination) {
   }
 }
 
-async function loadBookings(highlightId = null) {
-  try {
-    const response = await fetch('/api/bookings');
-    const bookings = await response.json();
+// async function loadBookings(highlightId = null) {
+//   try {
+//     const response = await fetch('/api/bookings');
+//     const bookings = await response.json();
 
-    bookingsTableBody.innerHTML = '';
-    bookings.forEach(booking => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${booking.id}</td>
-        <td>${booking.passengerName}</td>
-        <td>${booking.origin}</td>
-        <td>${booking.destination}</td>
-        <td>${booking.status}</td>
-      `;
-      if (highlightId && booking.id === highlightId) {
-        row.style.backgroundColor = '#d4edda';
-        setTimeout(() => { row.style.backgroundColor = ''; }, 2000);
-      }
-      bookingsTableBody.appendChild(row);
-    });
-  } catch (err) {
-    console.error('Error loading bookings:', err);
-  }
-}
+//     bookingsTableBody.innerHTML = '';
+//     bookings.forEach(booking => {
+//       const row = document.createElement('tr');
+//       row.innerHTML = `
+//         <td>${booking.id}</td>
+//         <td>${booking.passengerName}</td>
+//         <td>${booking.origin}</td>
+//         <td>${booking.destination}</td>
+//         <td>${booking.status}</td>
+//       `;
+//       if (highlightId && booking.id === highlightId) {
+//         row.style.backgroundColor = '#d4edda';
+//         setTimeout(() => { row.style.backgroundColor = ''; }, 2000);
+//       }
+//       bookingsTableBody.appendChild(row);
+//     });
+//   } catch (err) {
+//     console.error('Error loading bookings:', err);
+//   }
+// }
 
 
 // Handle booking form submission
