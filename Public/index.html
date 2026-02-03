@@ -6,42 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- CSS -->
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/script.min.js"></script>
-
-  <style>
-    /* Dark mode styles */
-    body.dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-    }
-
-    body.dark-mode header.navbar {
-      background-color: #1e1e1e;
-    }
-
-    body.dark-mode a {
-      color: #f1f1f1;
-    }
-
-    body.dark-mode table {
-      background-color: #1e1e1e;
-      color: #f1f1f1;
-    }
-
-    body.dark-mode footer {
-      background-color: #1e1e1e;
-      color: #f1f1f1;
-    }
-
-    /* Dark mode toggle button */
-    .dark-btn {
-      margin-left: 1rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-    }
-  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -56,8 +20,8 @@
         <li><a href="#">Help</a></li>
       </ul>
     </nav>
-    <!-- Dark mode toggle button -->
-    <button id="darkModeToggle" class="dark-btn" aria-label="Toggle dark mode">🌙</button>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle">🌙 Dark Mode</button>
   </header>
 
   <!-- Hero Banner -->
@@ -128,6 +92,9 @@
           <th>Passenger</th>
           <th>Origin</th>
           <th>Destination</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Class</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -180,17 +147,11 @@
       toggle.addEventListener('click', () => nav.classList.toggle('active'));
     }
 
-    // Dark mode toggle with persistence
+    // Dark mode toggle
     const darkToggle = document.getElementById('darkModeToggle');
     if (darkToggle) {
-      // Load saved preference
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-      }
-
       darkToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
       });
     }
 
