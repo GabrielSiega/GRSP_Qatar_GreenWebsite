@@ -216,3 +216,25 @@ body.dark-mode .promo-text { background: #1e1e1e; color: #e0e0e0; }
 body.dark-mode footer { background: #111; color: #e0e0e0; }
 body.dark-mode .btn { background: #444; color: #fff; }
 body.dark-mode .btn:hover { background: #fff; color: #800000; }
+
+.hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden; /* prevents overflow if image is larger */
+}
+
+.hero-img {
+  width: 100%;       /* scales to the width of the container */
+  max-height: 1200px; /* limits vertical size */
+  object-fit: cover; /* crops the image to fit nicely */
+  display: block;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
