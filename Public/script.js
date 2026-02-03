@@ -4,6 +4,11 @@ const availableFlightsTableBody = document.querySelector('#availableFlightsTable
 const originDropdown = document.getElementById('origin');
 const destinationDropdown = document.getElementById('destination');
 
+
+
+
+
+
 // Load available flights for dropdowns and schedule table
 async function loadAvailableFlights() {
   try {
@@ -153,4 +158,18 @@ form.addEventListener('submit', async (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   loadAvailableFlights();  // show schedule
   loadBookings();          // show bookings
+});
+
+const toggleOffersBtn = document.getElementById('toggleOffersBtn');
+const hiddenOffers = document.querySelectorAll('.hidden-offer');
+let offersVisible = false;
+
+toggleOffersBtn.addEventListener('click', () => {
+  offersVisible = !offersVisible;
+
+  hiddenOffers.forEach(img => {
+    img.style.display = offersVisible ? 'inline-block' : 'none';
+  });
+
+  toggleOffersBtn.textContent = offersVisible ? 'Show Less Offers' : 'Load More Offers';
 });

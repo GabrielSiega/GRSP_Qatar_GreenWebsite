@@ -32,9 +32,12 @@
   </header>
 
   <!-- Hero Banner -->
-  <!-- Hero Banner -->
+<!-- Hero Banner -->
 <section class="hero">
-  <img src="C:\Users\gabri\GRSP_Project_Qatar_Website\Public\Images\fifa-banner.png" alt="World Cup Travel Banner" class="hero-img">
+  <img src="Images/fifa-banner.png" 
+       alt="World Cup Travel Banner" 
+       class="hero-img" 
+       loading="lazy">
   <div class="hero-content">
     <h1>Score Your Spot at FIFA World Cup 26™</h1>
     <p>Fly with comfort, style, and sustainability.</p>
@@ -42,16 +45,22 @@
   </div>
 </section>
 
-<!-- More Offers
+
 <section class="promotions more-offers">
   <h2>More Offers</h2>
-  <div class="promo-grid">
-    <img src="Images/promo9.jpg" alt="Winter specials" loading="lazy">
-    <img src="Images/promo10.jpg" alt="Summer escapes" loading="lazy">
-    <img src="Images/promo11.jpg" alt="City breaks" loading="lazy">
-    <img src="Images/promo12.jpg" alt="Family holiday packages" loading="lazy">
+  <div class="promo-grid" id="promoGrid">
+    <!-- Always visible -->
+    <img src="Images/qatar-1.webp" alt="Winter specials" loading="lazy">
+    <img src="Images/qatar-q.webp" alt="Summer escapes" loading="lazy">
+
+    <!-- Hidden until button click -->
+    <img src="Images/qatar-qe.webp" alt="City breaks" loading="lazy" class="hidden-offer">
+    <img src="Images/qatar-1.webp" alt="Family holiday packages" loading="lazy" class="hidden-offer">
   </div>
-</section> -->
+  <button id="toggleOffersBtn">Load More Offers</button>
+</section>
+
+
 
 <!-- External JS -->
 <script src="script.js"></script>
@@ -147,7 +156,7 @@
     </div>
   </section>
 
-  <!-- More Offers -->
+  <!-- More Offers
   <section class="promotions more-offers">
     <h2>More Offers</h2>
     <div class="promo-grid">
@@ -156,7 +165,7 @@
       <img src="/Images/promo11.jpg" alt="City breaks" loading="lazy">
       <img src="/Images/promo12.jpg" alt="Family holiday packages" loading="lazy">
     </div>
-  </section>
+  </section> -->
 
   <!-- Footer -->
   <footer>
@@ -188,6 +197,6 @@
     });
   </script>
   <!-- External JS -->
-  <script src="/script.js"></script>
+  <!-- <script src="/script.js"></script> -->
 </body>
 </html>
