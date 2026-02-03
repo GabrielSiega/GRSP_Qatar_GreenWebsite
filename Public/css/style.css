@@ -247,7 +247,13 @@ body.dark-mode .btn:hover { background: #fff; color: #800000; }
   margin: 0 auto;
 }
 
-.hidden-offer {
-  display: none;
+.promo-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;              /* start hidden */
+  transition: opacity 0.5s ease;
 }
-
+.promo-grid img.visible {
+  opacity: 1;              /* fade in when in viewport */
+}

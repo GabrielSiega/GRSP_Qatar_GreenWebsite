@@ -5,6 +5,24 @@ const originDropdown = document.getElementById('origin');
 const destinationDropdown = document.getElementById('destination');
 
 
+// Select all promo images
+const promoImages = document.querySelectorAll('.promo-grid img');
+
+// Create observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');   // fade in
+    } else {
+      entry.target.classList.remove('visible'); // fade out when leaving
+    }
+  });
+}, {
+  threshold: 0.1 // trigger when at least 10% visible
+});
+
+// Attach observer
+promoImages.forEach(img => observer.observe(img));
 
 
 
